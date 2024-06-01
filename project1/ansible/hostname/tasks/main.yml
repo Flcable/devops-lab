@@ -1,0 +1,15 @@
+- name: set hostname
+  ansible.builtin.hostname:
+    name: vps.devops-lab.sbs
+    use: systemd
+
+- name: localhost
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 127.0.0.1 localhost.localdomain localhost
+
+- name: vps.devops-lab.sbs
+  ansible.builtin.lineinfile:
+    path: /etc/hosts
+    line: 172.233.108.26 vps.devops-lab.sbs vps
+
